@@ -28,7 +28,7 @@ function Features() {
                 </svg>
               </div>
               <h3>Privacy Centric</h3>
-              <p>We do not upload your images. Processing is done securely inside your browser's private memory.</p>
+              <p>We do not upload your images. Processing is done securely inside your browser&apos;s private memory.</p>
             </div>
 
             <div className="info-card">

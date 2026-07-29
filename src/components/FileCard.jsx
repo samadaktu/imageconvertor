@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatFileSize } from '../utils/helpers';
 
-function FileCard({ file, onRemove, onDownload }) {
+function FileCard({ file, onRemove, onDownload, onPreview }) {
   const getStatusIcon = () => {
     switch (file.status) {
       case 'pending':
@@ -47,29 +47,48 @@ function FileCard({ file, onRemove, onDownload }) {
 
   return (
     <div className="file-card">
-      <div className="file-preview">
+      <div className="file-preview" onClick={onPreview} style={{ cursor: 'pointer' }}>
         <img src={file.preview} alt={file.name} />
         {getStatusIcon()}
+        <div className="preview-overlay">
+          <span>Click to Inspect</span>
+        </div>
       </div>
       
       <div className="file-info">
         <p className="file-name" title={file.name}>{file.name}</p>
         <div className="file-meta">
-          <span className="file-size">{formatFileSize(file.originalSize)}</span>
+          <div className="file-size-group">
+            <span className="file-size">{formatFileSize(file.originalSize)}</span>
+            {file.convertedSize && (
+              <span className="converted-size">→ {formatFileSize(file.convertedSize)}</span>
+            )}
+          </div>
           {file.status === 'success' && file.compressionRatio && (
-            <span className="compression-ratio">
-              -{file.compressionRatio}%
+            <span className={`compression-ratio ${Number(file.compressionRatio) < 0 ? 'increased' : ''}`}>
+              {Number(file.compressionRatio) >= 0 ? `-${file.compressionRatio}%` : `+${Math.abs(file.compressionRatio)}%`}
             </span>
           )}
         </div>
       </div>
       
       <div className="file-actions">
+        <button 
+          className="btn-icon btn-preview" 
+          onClick={onPreview}
+          title="Preview & Compare"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </button>
+
         {file.status === 'success' && (
           <button 
             className="btn-icon btn-download" 
             onClick={onDownload}
-            title="Download"
+            title="Download Converted File"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />

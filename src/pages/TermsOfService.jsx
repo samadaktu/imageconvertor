@@ -24,7 +24,7 @@ function TermsOfService() {
 
             <h3 style={{ color: 'var(--color-white)', marginTop: 'var(--space-lg)', marginBottom: 'var(--space-xs)' }}>3. Disclaimer</h3>
             <p>
-              The materials on this website are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.
+              The materials on this website are provided on an &quot;as is&quot; basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.
             </p>
           </div>
         </div>

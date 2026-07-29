@@ -14,7 +14,7 @@ function PrivacyPolicy() {
             
             <h3 style={{ color: 'var(--color-white)', marginTop: 'var(--space-lg)', marginBottom: 'var(--space-xs)' }}>1. Information We Do Not Collect</h3>
             <p>
-              We prioritize your privacy above all else. This application processes all image files entirely within your device's browser memory (client-side). We do not upload, transmit, store, or view any of the media files you convert.
+              We prioritize your privacy above all else. This application processes all image files entirely within your device&apos;s browser memory (client-side). We do not upload, transmit, store, or view any of the media files you convert.
             </p>
 
             <h3 style={{ color: 'var(--color-white)', marginTop: 'var(--space-lg)', marginBottom: 'var(--space-xs)' }}>2. Cookies and Tracking</h3>

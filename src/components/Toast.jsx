@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 function Toast({ show, message, type = 'success' }) {
   if (!show) return null;

@@ -1,16 +1,14 @@
-import imageCompression from 'browser-image-compression';
-
 /**
  * Convert an image file to a specified format
  * @param {File} file - The image file to convert
  * @param {Object} options - Conversion options
- * @returns {Promise<{blob: Blob, size: number, width: number, height: number}>}
+ * @returns {Promise<{blob: Blob, size: number, width: number, height: number, originalWidth: number, originalHeight: number}>}
  */
 export async function convertImage(file, options = {}) {
   const {
     quality = 0.9,
     maxWidthOrHeight = undefined,
-    targetFormat = 'image/webp' // defaults to webp, but can be 'image/jpeg', 'image/png', etc.
+    targetFormat = 'image/webp'
   } = options;
 
   try {
@@ -21,27 +19,34 @@ export async function convertImage(file, options = {}) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     
-    // Set canvas dimensions
-    let width = img.width;
-    let height = img.height;
+    // Get original dimensions
+    const origWidth = img.naturalWidth || img.width;
+    const origHeight = img.naturalHeight || img.height;
     
-    // Resize if needed
-    if (maxWidthOrHeight) {
-      const scale = Math.min(maxWidthOrHeight / width, maxWidthOrHeight / height);
-      if (scale < 1) {
-        width = Math.floor(width * scale);
-        height = Math.floor(height * scale);
+    let width = origWidth;
+    let height = origHeight;
+    
+    // Resize if max dimension is specified
+    if (maxWidthOrHeight && maxWidthOrHeight > 0) {
+      const maxDim = Number(maxWidthOrHeight);
+      if (width > maxDim || height > maxDim) {
+        const scale = Math.min(maxDim / width, maxDim / height);
+        width = Math.round(width * scale);
+        height = Math.round(height * scale);
       }
     }
     
     canvas.width = width;
     canvas.height = height;
     
-    // Draw the image
-    // If target is jpeg, we should fill with white background first to avoid black backgrounds for transparent pixels
-    if (targetFormat === 'image/jpeg') {
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillRect(0, 0, width, height);
+    // Enable high quality image smoothing
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    
+    // If target format does not support transparency, fill white background
+    if (targetFormat === 'image/jpeg' || targetFormat === 'image/bmp') {
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, width, height);
     }
 
     ctx.drawImage(img, 0, 0, width, height);
@@ -55,7 +60,9 @@ export async function convertImage(file, options = {}) {
               blob,
               size: blob.size,
               width,
-              height
+              height,
+              originalWidth: origWidth,
+              originalHeight: origHeight
             });
           } else {
             reject(new Error(`Failed to convert image to ${targetFormat}`));
@@ -95,34 +102,3 @@ function createImageElement(file) {
   });
 }
 
-/**
- * Alternative conversion method using browser-image-compression library
- * Retained for WebP compression specifically if needed
- */
-export async function convertImageToWebPWithCompression(file, options = {}) {
-  const {
-    quality = 0.9,
-    maxSizeMB = 10,
-    maxWidthOrHeight = undefined
-  } = options;
-
-  try {
-    const compressionOptions = {
-      maxSizeMB,
-      maxWidthOrHeight,
-      useWebWorker: true,
-      fileType: 'image/webp',
-      initialQuality: quality
-    };
-
-    const compressedFile = await imageCompression(file, compressionOptions);
-    
-    return {
-      blob: compressedFile,
-      size: compressedFile.size
-    };
-  } catch (error) {
-    console.error('Error with compression library:', error);
-    throw error;
-  }
-}
