@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -54,7 +53,7 @@ function Header() {
           </nav>
 
           <div className="header-actions">
-            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="desktop-contact-wrapper">
+            <div className="desktop-contact-wrapper">
               <Link to="/contact" className="btn-signup-coral">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ marginRight: '6px' }}>
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -62,7 +61,7 @@ function Header() {
                 </svg>
                 Contact Us
               </Link>
-            </motion.div>
+            </div>
 
             {/* Mobile Hamburger Button */}
             <button 
@@ -87,39 +86,31 @@ function Header() {
         </div>
 
         {/* Mobile Dropdown Nav Drawer */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.nav 
-              className="mobile-nav-drawer"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25 }}
-            >
-              <div className="mobile-nav-links">
-                <NavLink to="/" className="mobile-nav-link" onClick={closeMobileMenu} end>
-                  Converter
-                </NavLink>
-                <NavLink to="/features" className="mobile-nav-link" onClick={closeMobileMenu}>
-                  Features
-                </NavLink>
-                <NavLink to="/about" className="mobile-nav-link" onClick={closeMobileMenu}>
-                  About
-                </NavLink>
-                <NavLink to="/contact" className="mobile-nav-link" onClick={closeMobileMenu}>
-                  Contact
-                </NavLink>
-                <Link to="/contact" className="btn-signup-coral mobile-contact-btn" onClick={closeMobileMenu}>
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ marginRight: '6px' }}>
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
-                  Contact Us
-                </Link>
-              </div>
-            </motion.nav>
-          )}
-        </AnimatePresence>
+        {mobileMenuOpen && (
+          <nav className="mobile-nav-drawer">
+            <div className="mobile-nav-links">
+              <NavLink to="/" className="mobile-nav-link" onClick={closeMobileMenu} end>
+                Converter
+              </NavLink>
+              <NavLink to="/features" className="mobile-nav-link" onClick={closeMobileMenu}>
+                Features
+              </NavLink>
+              <NavLink to="/about" className="mobile-nav-link" onClick={closeMobileMenu}>
+                About
+              </NavLink>
+              <NavLink to="/contact" className="mobile-nav-link" onClick={closeMobileMenu}>
+                Contact
+              </NavLink>
+              <Link to="/contact" className="btn-signup-coral mobile-contact-btn" onClick={closeMobileMenu}>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ marginRight: '6px' }}>
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                Contact Us
+              </Link>
+            </div>
+          </nav>
+        )}
       </div>
     </header>
   );

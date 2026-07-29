@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -11,7 +11,7 @@ import TermsOfService from './pages/TermsOfService';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <div className="app">
         <Header />
         <Routes>
@@ -21,10 +21,11 @@ function App() {
           <Route path="/features" element={<Features />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
+          <Route path="*" element={<Home />} />
         </Routes>
         <Footer />
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

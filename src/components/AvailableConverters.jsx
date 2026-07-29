@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const FORMATS = [
   'AVIF', 'BMP', 'CR2', 'CR3', 'DNG', 'EPS', 'GIF', 
@@ -25,34 +24,20 @@ function AvailableConverters({ onSelectFormat, activeFormat }) {
             </p>
           </div>
 
-          <motion.div 
-            className="format-matrix"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              visible: { transition: { staggerChildren: 0.03 } }
-            }}
-          >
+          <div className="format-matrix">
             {FORMATS.map((fmt) => {
               const isSelected = activeFormat?.toLowerCase() === fmt.toLowerCase();
               return (
-                <motion.button
+                <button
                   key={fmt}
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 }
-                  }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
                   className={`matrix-pill ${isSelected ? 'active' : ''}`}
                   onClick={() => onSelectFormat(fmt.toLowerCase())}
                 >
                   {fmt}
-                </motion.button>
+                </button>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
 
 function UploadZone({ onFilesAdded, disabled, fileCount, maxFiles }) {
   const [isDragActive, setIsDragActive] = useState(false);
@@ -51,12 +50,7 @@ function UploadZone({ onFilesAdded, disabled, fileCount, maxFiles }) {
   };
 
   return (
-    <motion.section 
-      className="floating-upload-section"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.15 }}
-    >
+    <section className="floating-upload-section">
       <div 
         onClick={handleClickBox}
         onDragOver={handleDragOver}
@@ -88,12 +82,10 @@ function UploadZone({ onFilesAdded, disabled, fileCount, maxFiles }) {
             or drag & drop your files here · Ctrl+V to paste
           </p>
 
-          <motion.button 
+          <button 
             type="button" 
             className="btn-cloud-red"
             disabled={disabled}
-            whileHover={{ scale: 1.03, boxShadow: '0 8px 20px rgba(211, 41, 41, 0.4)' }}
-            whileTap={{ scale: 0.97 }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '6px' }}>
               <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
@@ -102,7 +94,7 @@ function UploadZone({ onFilesAdded, disabled, fileCount, maxFiles }) {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ marginLeft: '6px' }}>
               <polyline points="6 9 12 15 18 9" />
             </svg>
-          </motion.button>
+          </button>
 
           <p className="upload-limit-foot">
             {fileCount > 0 ? `${fileCount}/${maxFiles} files selected · ` : ''}
@@ -110,7 +102,7 @@ function UploadZone({ onFilesAdded, disabled, fileCount, maxFiles }) {
           </p>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
 
