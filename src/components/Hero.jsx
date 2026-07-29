@@ -9,9 +9,9 @@ function Hero({ targetFormat = 'webp' }) {
         <div className="cloud-hero-grid">
           {/* Left Hero Column */}
           <div className="hero-left">
-            <h2 className="cloud-hero-title">Image Converter</h2>
+            <h2 className="cloud-hero-title">Image4me Converter</h2>
             <p className="cloud-hero-desc">
-              Image Converter converts your image files online. Amongst many others, we support PNG, JPG, GIF, WEBP, HEIC, and BMP. You can use the options below to control image resolution, quality and file size.
+              Image4me converts your image files online. Amongst many others, we support PNG, JPG, GIF, WEBP, HEIC, and BMP. You can use the options below to control image resolution, quality and file size.
             </p>
           </div>
 

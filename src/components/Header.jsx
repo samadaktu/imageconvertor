@@ -24,7 +24,7 @@ function Header() {
                 </svg>
               </div>
               <h1 className="logo-text">
-                image<span>convert</span>
+                Image<span>4me</span>
               </h1>
             </Link>
             <span className="privacy-badge">

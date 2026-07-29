@@ -465,6 +465,105 @@ body {
   padding-bottom: var(--space-3xl);
 }
 
+.page-content {
+  padding-top: 2.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.page-card {
+  padding: 2.5rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 640px) {
+  .page-content {
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .page-card {
+    padding: 1.25rem;
+  }
+}
+
+.page-body {
+  color: var(--color-text-muted-dark);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.page-paragraph {
+  margin-bottom: var(--space-lg);
+}
+
+.page-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Contact Form Styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-label {
+  color: var(--color-text-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-input {
+  padding: 0.875rem 1rem;
+  border-radius: var(--radius-md);
+  background: #f8fafc;
+  border: 1px solid var(--color-card-border);
+  color: var(--color-text-dark);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.form-input::placeholder {
+  color: #94a3b8;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-brand-red);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(211, 41, 41, 0.12);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-submit-btn {
+  width: 100%;
+  margin-top: var(--space-sm);
+  padding: 0.9rem;
+  font-size: 1rem;
+}
+
+.contact-success-msg {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--color-success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 600;
+}
+
 .format-selector-wrapper {
   background: white;
   border-radius: var(--radius-xl);
@@ -1236,6 +1335,18 @@ button {
 
 .footer-nav a:hover {
   color: white;
+}
+
+.developer-link {
+  color: var(--color-brand-red);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.developer-link:hover {
+  color: #ff6b6b;
+  text-decoration: underline;
 }
 
 /* ===================================

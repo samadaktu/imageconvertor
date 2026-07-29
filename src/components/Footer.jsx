@@ -9,7 +9,15 @@ function Footer() {
       <div className="container">
         <div className="footer-content">
           <p className="footer-text">
-            © {currentYear} ImageConverter. All rights reserved.
+            © {currentYear} Image4me. All rights reserved. | Developed by{' '}
+            <a 
+              href="https://technoalig.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="developer-link"
+            >
+              Techno Alig
+            </a>
           </p>
           <nav className="footer-nav">
             <Link to="/privacy">Privacy Policy</Link>

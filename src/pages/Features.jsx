@@ -2,12 +2,12 @@ import React from 'react';
 
 function Features() {
   return (
-    <main className="main-content">
+    <main className="main-content page-content">
       <div className="container">
-        <div className="glass" style={{ padding: 'var(--space-3xl)', borderRadius: 'var(--radius-xl)' }}>
+        <div className="glass page-card">
           <h1 className="hero-title">Core <span className="gradient-text">Features</span></h1>
           
-          <div className="info-grid" style={{ marginTop: 'var(--space-2xl)' }}>
+          <div className="info-grid" style={{ marginTop: 'var(--space-xl)' }}>
             <div className="info-card">
               <div className="info-icon">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
