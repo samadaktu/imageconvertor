@@ -29,8 +29,9 @@ User-agent: CCBot
 Allow: /
 
 # Sitemap path
-Sitemap: https://image4me.com/sitemap.xml
+Sitemap: https://i4me.netlify.app/sitemap.xml
 
 # LLM Agent Discoverability Context
 # Reference: https://llmstxt.org/
-LLM-Text: https://image4me.com/llms.txt
+LLM-Text: https://i4me.netlify.app/llms.txt
+

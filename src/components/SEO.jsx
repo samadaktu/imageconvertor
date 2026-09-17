@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 const DEFAULT_TITLE = 'PNG to WebP & JPG to WebP Converter Free Online | Image4me';
 const DEFAULT_DESCRIPTION = 'Free online PNG to WebP and JPG to WebP converter. Batch convert images to WebP instantly in your browser with maximum compression and zero server uploads. 100% private & ultra-fast.';
 const DEFAULT_KEYWORDS = 'png to webp, jpg to webp, jpeg to webp, webp to png, webp to jpg, convert image to webp, free online webp converter, bulk webp converter, image compressor, web design image optimization';
-const SITE_URL = 'https://image4me.com';
+const SITE_URL = 'https://i4me.netlify.app';
+
 
 function SEO({ 
   title = DEFAULT_TITLE, 

@@ -21,12 +21,13 @@ Image4me helps web developers, digital marketers, content creators, and site own
 - GIF to WebP (`gif-to-webp`)
 
 ## Page Map & Site Structure
-- [Home Page & Converter Application](https://image4me.com/)
-- [Features & Tech Breakdown](https://image4me.com/features)
-- [About Image4me](https://image4me.com/about)
-- [Contact Support](https://image4me.com/contact)
-- [Privacy Policy](https://image4me.com/privacy)
-- [Terms of Service](https://image4me.com/terms)
+- [Home Page & Converter Application](https://i4me.netlify.app/)
+- [Features & Tech Breakdown](https://i4me.netlify.app/features)
+- [About Image4me](https://i4me.netlify.app/about)
+- [Contact Support](https://i4me.netlify.app/contact)
+- [Privacy Policy](https://i4me.netlify.app/privacy)
+- [Terms of Service](https://i4me.netlify.app/terms)
 
 ## Extended Documentation
-- [Full LLM Technical Context](https://image4me.com/llms-full.txt)
+- [Full LLM Technical Context](https://i4me.netlify.app/llms-full.txt)
+
