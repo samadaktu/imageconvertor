@@ -1,13 +1,69 @@
-# Apache Configuration for Single Page Application (React Router)
+# Disable directory listing
+Options -Indexes
+
+# Fallback 404 handler for React SPA
+ErrorDocument 404 /index.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
   
+  # Prevent infinite rewrite loop on index.html
+  RewriteRule ^index\.html$ - [L]
+
   # If requested file or directory exists, serve directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
-  
-  # Rewrite all other URLs to index.html for React Router client-side routing
-  RewriteRule ^ index.html [L]
+
+  # Rewrite all other URLs to /index.html for React Router client-side routing
+  RewriteRule . /index.html [L]
 </IfModule>
+
+# Set correct MIME Types
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/svg+xml .svg .svgz
+  AddType application/javascript .js .mjs
+  AddType text/css .css
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+</IfModule>
+
+# Enable GZIP Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json image/svg+xml
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Prevent caching of index.html so users always receive latest app version
+<FilesMatch "^(index\.html)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </IfModule>
+</FilesMatch>
+
+# Leverage Browser Caching for static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
