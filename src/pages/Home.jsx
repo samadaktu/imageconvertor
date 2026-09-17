@@ -6,10 +6,13 @@ import FileList from '../components/FileList';
 import ActionButtons from '../components/ActionButtons';
 import AvailableConverters from '../components/AvailableConverters';
 import InfoSection from '../components/InfoSection';
+import SeoContentSection from '../components/SeoContentSection';
+import SEO from '../components/SEO';
 import Toast from '../components/Toast';
 import ImagePreviewModal from '../components/ImagePreviewModal';
 import { convertImage } from '../utils/imageConverter';
 import { downloadFile, downloadAllAsZip } from '../utils/downloadHelper';
+
 
 const MAX_FILES = 100;
 const MAX_FILE_SIZE = 100 * 1024 * 1024; // 100MB
@@ -218,6 +221,13 @@ function Home() {
 
   return (
     <>
+      <SEO 
+        title="PNG to WebP & JPG to WebP Converter Free Online | Image4me"
+        description="Free online PNG to WebP and JPG to WebP converter. Batch convert images to WebP instantly in your browser with maximum compression and zero server uploads. 100% private & ultra-fast."
+        keywords="png to webp, jpg to webp, jpeg to webp, webp to png, webp to jpg, convert image to webp, free online webp converter, bulk webp converter, image compressor, web design image optimization"
+        canonicalPath="/"
+      />
+
       <Hero targetFormat={targetFormat} onSelectFormat={setTargetFormat} />
       
       <main className="main-content">
@@ -268,6 +278,8 @@ function Home() {
       <AvailableConverters activeFormat={targetFormat} onSelectFormat={setTargetFormat} />
 
       <InfoSection />
+
+      <SeoContentSection />
       
       {previewFile && (
         <ImagePreviewModal
@@ -284,6 +296,7 @@ function Home() {
       />
     </>
   );
+
 }
 
 export default Home;

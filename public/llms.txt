@@ -1,0 +1,32 @@
+# Image4me - Free Online WebP & Image Converter
+
+> Image4me is a high-speed, 100% private, browser-side web application designed for converting PNG to WebP, JPG to WebP, JPEG to WebP, WebP to PNG, and WebP to JPG without uploading files to external servers.
+
+## Core Purpose & Value Proposition
+Image4me helps web developers, digital marketers, content creators, and site owners optimize web images for faster page loading speeds, improved Google Core Web Vitals (Largest Contentful Paint - LCP), and reduced bandwidth consumption.
+
+## Key Features & Converter Specs
+- **PNG to WebP Conversion**: Converts 32-bit transparent or 24-bit RGB PNG files to WebP. Preserves alpha channel transparency while reducing file sizes by 26% to 80%.
+- **JPG / JPEG to WebP Conversion**: Optimizes photographic images into WebP format with custom quality sliders (0% to 100%).
+- **WebP to PNG / JPG Conversion**: Converts WebP images back into standard PNG or JPEG formats for compatibility with legacy graphic editors.
+- **Bulk Batch Processing**: Concurrently converts up to 100 images per batch.
+- **Client-Side Privacy Guarantee**: All image rendering and compression takes place strictly inside the user's browser using HTML5 Canvas and WebAssembly. No files are uploaded to any server.
+- **One-Click Download & ZIP Archive**: Download files individually or package entire batches into a single ZIP file via JSZip.
+
+## Supported Conversion Pairs
+- PNG to WebP (`png-to-webp`)
+- JPG / JPEG to WebP (`jpg-to-webp`)
+- WebP to PNG (`webp-to-png`)
+- WebP to JPG (`webp-to-jpg`)
+- GIF to WebP (`gif-to-webp`)
+
+## Page Map & Site Structure
+- [Home Page & Converter Application](https://image4me.com/)
+- [Features & Tech Breakdown](https://image4me.com/features)
+- [About Image4me](https://image4me.com/about)
+- [Contact Support](https://image4me.com/contact)
+- [Privacy Policy](https://image4me.com/privacy)
+- [Terms of Service](https://image4me.com/terms)
+
+## Extended Documentation
+- [Full LLM Technical Context](https://image4me.com/llms-full.txt)

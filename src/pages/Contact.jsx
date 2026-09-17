@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
 
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -10,7 +11,15 @@ function Contact() {
   };
 
   return (
-    <main className="main-content page-content">
+    <>
+      <SEO 
+        title="Contact Us - Image4me Image Converter Support"
+        description="Have questions or feedback about Image4me? Get in touch with our team for support regarding image conversion, WebP compression, or feature requests."
+        keywords="contact image4me, image converter support, webp converter feedback"
+        canonicalPath="/contact"
+      />
+      <main className="main-content page-content">
+
       <div className="container" style={{ maxWidth: '720px' }}>
         <div className="glass page-card">
           <h1 className="hero-title" style={{ textAlign: 'center', marginBottom: 'var(--space-xl)' }}>
@@ -61,7 +70,9 @@ function Contact() {
         </div>
       </div>
     </main>
+    </>
   );
 }
 
 export default Contact;
+

@@ -1,0 +1,25 @@
+# Image4me - Complete Technical Documentation & LLM Specification
+
+## Architecture Overview
+Image4me is built with React 18, Vite 5, HTML5 Canvas API, and JavaScript/WebAssembly client-side image processing. It eliminates server latency and privacy risks associated with traditional server-side conversion services (such as CloudConvert or Convertio).
+
+## Technical Features Deep Dive
+
+### 1. Browser-Based Compression Engine
+- File reading is performed using the `FileReader` API and `URL.createObjectURL`.
+- Image resizing and re-encoding are executed asynchronously on HTML5 `<canvas>` elements.
+- Image mime-types supported: `image/png`, `image/jpeg`, `image/webp`, `image/gif`, `image/bmp`, `image/svg+xml`.
+
+### 2. Privacy & Data Security
+- Zero network data transfer for conversion tasks.
+- No storage on third-party servers.
+- Fully compliant with strict corporate data protection standards and GDPR / CCPA privacy frameworks.
+
+### 3. Core Web Vitals & SEO Optimization Benefits
+- **WebP Compression**: WebP offers 26% smaller file sizes compared to PNGs and 25-34% smaller file sizes compared to JPEGs at equivalent SSIM visual quality indices.
+- **PageSpeed Gains**: Smaller image sizes decrease Largest Contentful Paint (LCP) render times and lower overall bandwidth utilization.
+
+### 4. Target Use Cases
+- Converting website assets (hero banners, blog thumbnails, product graphics) from PNG/JPG to WebP.
+- Bulk compressing photography portfolios before website publishing.
+- Batch shrinking social media graphics.
